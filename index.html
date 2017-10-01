@@ -5,7 +5,7 @@
   }
 
   function mwPlayerMessageReceive(event) {
-    console.log('mwPlayerMessageReceive');
+    console.log('mwPlayerMessageReceive', event.data, event.data.message);
     if (event.data && event.data.message == 'MW_PLAYER_TIME_UPDATE') {
    console.log('onPlayerTimeUpdate');   
    onPlayerTimeUpdate(event.data.value);
