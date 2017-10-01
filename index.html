@@ -1,0 +1,19 @@
+<iframe src="https://streamguard.cc/video/4345e34ab3754383/iframe" width="610" height="370" frameborder="0" allowfullscreen></iframe>
+<script>
+    function onPlayerTimeUpdate(player_time) {
+    console.log('onPlayerTimeUpdate', player_time);
+  }
+
+  function mwPlayerMessageReceive(event) {
+    console.log('mwPlayerMessageReceive');
+    if (event.data && event.data.message == 'MW_PLAYER_TIME_UPDATE') {
+   console.log('onPlayerTimeUpdate');   
+   onPlayerTimeUpdate(event.data.value);
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', function() {
+    console.log('DOMContentLoaded');
+    window.addEventListener('message', mwPlayerMessageReceive);
+  });
+</script>
